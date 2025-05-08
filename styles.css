@@ -1,0 +1,110 @@
+:root {
+  --primary-color: #dddde0;
+  --secondary-color: #1c1c1c;
+  --text-color: #f63dae;
+  --transition-duration: 0.3s;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 600vh;
+  background: var(--primary-color);
+  font-family: Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.gallery {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cards {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards li {
+  list-style: none;
+  width: 15rem;
+  height: 23rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--secondary-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cards li:hover {
+  transform: scale(1.05);
+  will-change: transform;
+}
+
+.card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform var(--transition-duration) ease;
+  padding: 0.6rem 1.2rem;
+  will-change: transform;
+}
+
+.card-content:hover img {
+  transform: scale(0.9) rotate(3deg);
+  will-change: transform;
+}
+
+.card-content .name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all var(--transition-duration) ease;
+}
+
+.card-content:hover .name {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: transform;
+}
